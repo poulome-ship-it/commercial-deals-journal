@@ -1,3 +1,6 @@
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +18,22 @@
       --muted:     #7a7567;
       --tag-bg:    #e8e4db;
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     body {
       font-family: 'Inter', sans-serif;
       background: var(--paper);
       color: var(--ink);
       min-height: 100vh;
     }
-
+ 
     /* ── MASTHEAD ── */
     .masthead {
       border-bottom: 3px solid var(--ink);
       padding: 0 clamp(1.5rem, 5vw, 4rem);
     }
-
+ 
     .masthead-top {
       display: flex;
       justify-content: space-between;
@@ -43,12 +46,12 @@
       color: var(--muted);
       font-weight: 500;
     }
-
+ 
     .masthead-title {
       text-align: center;
       padding: 1.5rem 0 1rem;
     }
-
+ 
     .masthead-title h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
@@ -57,7 +60,7 @@
       line-height: 1;
       color: var(--ink);
     }
-
+ 
     .masthead-title .sub {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
@@ -66,7 +69,7 @@
       margin-top: 0.5rem;
       font-weight: 500;
     }
-
+ 
     .masthead-nav {
       display: flex;
       justify-content: center;
@@ -78,33 +81,33 @@
       text-transform: uppercase;
       font-weight: 600;
     }
-
+ 
     .masthead-nav a {
       color: var(--ink);
       text-decoration: none;
       transition: color 0.2s;
     }
     .masthead-nav a:hover { color: var(--accent); }
-
+ 
     /* ── LAYOUT ── */
     .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
     }
-
+ 
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 280px;
       gap: 3rem;
       padding: 3rem 0;
     }
-
+ 
     @media (max-width: 768px) {
       .main-grid { grid-template-columns: 1fr; }
       .sidebar { order: -1; }
     }
-
+ 
     /* ── SECTION LABELS ── */
     .section-label {
       font-size: 0.65rem;
@@ -116,14 +119,14 @@
       padding-top: 0.5rem;
       margin-bottom: 1.5rem;
     }
-
+ 
     /* ── FEATURED DEAL ── */
     .featured {
       border-bottom: 1px solid var(--rule);
       padding-bottom: 2rem;
       margin-bottom: 2.5rem;
     }
-
+ 
     .featured-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -132,7 +135,7 @@
       color: var(--accent2);
       margin-bottom: 0.75rem;
     }
-
+ 
     .featured h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 3.5vw, 2.4rem);
@@ -141,13 +144,13 @@
       color: var(--ink);
       margin-bottom: 0.75rem;
     }
-
+ 
     .featured h2 a {
       color: inherit;
       text-decoration: none;
     }
     .featured h2 a:hover { color: var(--accent); }
-
+ 
     .featured-meta {
       display: flex;
       gap: 1rem;
@@ -158,7 +161,7 @@
       color: var(--muted);
       letter-spacing: 0.05em;
     }
-
+ 
     .featured-meta .deal-value {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
@@ -168,14 +171,14 @@
       padding: 0.2rem 0.5rem;
       border-radius: 2px;
     }
-
+ 
     .featured p {
       font-size: 1rem;
       line-height: 1.75;
       color: #2a2a2a;
       max-width: 65ch;
     }
-
+ 
     .read-more {
       display: inline-block;
       margin-top: 1rem;
@@ -190,10 +193,10 @@
       transition: opacity 0.2s;
     }
     .read-more:hover { opacity: 0.65; }
-
+ 
     /* ── DEAL LIST ── */
     .deal-list { display: flex; flex-direction: column; gap: 0; }
-
+ 
     .deal-item {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -205,16 +208,16 @@
       transition: background 0.15s;
     }
     .deal-item:hover { background: rgba(26,58,92,0.03); }
-
+ 
     .deal-item-left {}
-
+ 
     .deal-tags {
       display: flex;
       gap: 0.4rem;
       flex-wrap: wrap;
       margin-bottom: 0.4rem;
     }
-
+ 
     .tag {
       font-size: 0.62rem;
       letter-spacing: 0.1em;
@@ -225,12 +228,12 @@
       padding: 0.15rem 0.45rem;
       border-radius: 2px;
     }
-
+ 
     .tag.sector-tech    { background: #dce8f5; color: #1a3a5c; }
     .tag.sector-pharma  { background: #e5f0e5; color: #2a5c2a; }
     .tag.sector-finance { background: #f5ead5; color: #7a5c1a; }
     .tag.sector-energy  { background: #f0e5f5; color: #5c2a5c; }
-
+ 
     .deal-item h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
@@ -239,7 +242,7 @@
       color: var(--ink);
       margin-bottom: 0.3rem;
     }
-
+ 
     .deal-item-meta {
       font-size: 0.7rem;
       color: var(--muted);
@@ -247,7 +250,7 @@
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-
+ 
     .deal-value-small {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
@@ -256,16 +259,16 @@
       white-space: nowrap;
       padding-top: 1.5rem;
     }
-
+ 
     /* ── SIDEBAR ── */
     .sidebar { }
-
+ 
     .sidebar-block {
       border-top: 2px solid var(--ink);
       padding-top: 0.5rem;
       margin-bottom: 2rem;
     }
-
+ 
     .sidebar-block h4 {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -274,30 +277,30 @@
       color: var(--muted);
       margin-bottom: 1rem;
     }
-
+ 
     .about-text {
       font-size: 0.88rem;
       line-height: 1.7;
       color: #2a2a2a;
     }
-
+ 
     .about-text a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid var(--accent);
     }
-
+ 
     .stat-row {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-
+ 
     .stat {
       display: flex;
       flex-direction: column;
     }
-
+ 
     .stat-num {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
@@ -305,7 +308,7 @@
       color: var(--accent);
       line-height: 1;
     }
-
+ 
     .stat-label {
       font-size: 0.7rem;
       color: var(--muted);
@@ -313,14 +316,14 @@
       text-transform: uppercase;
       margin-top: 0.2rem;
     }
-
+ 
     .filter-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
       margin-bottom: 1.5rem;
     }
-
+ 
     .filter-btn {
       font-size: 0.65rem;
       letter-spacing: 0.1em;
@@ -339,7 +342,7 @@
       color: white;
       border-color: var(--accent);
     }
-
+ 
     /* ── MODAL ── */
     .modal-overlay {
       display: none;
@@ -352,7 +355,7 @@
       overflow-y: auto;
     }
     .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
-
+ 
     .modal {
       background: var(--paper);
       max-width: 720px;
@@ -362,7 +365,7 @@
       border-top: 4px solid var(--accent);
       margin: auto;
     }
-
+ 
     .modal-close {
       position: absolute;
       top: 1rem; right: 1rem;
@@ -373,7 +376,7 @@
       line-height: 1;
     }
     .modal-close:hover { color: var(--ink); }
-
+ 
     .modal-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -382,7 +385,7 @@
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
-
+ 
     .modal h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.4rem, 3vw, 2rem);
@@ -390,7 +393,7 @@
       line-height: 1.25;
       margin-bottom: 0.75rem;
     }
-
+ 
     .modal-meta {
       display: flex;
       gap: 1rem;
@@ -401,22 +404,22 @@
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
     }
-
+ 
     .modal-body {
       font-size: 0.95rem;
       line-height: 1.8;
       color: #1a1a1a;
     }
-
+ 
     .modal-body h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       margin: 1.5rem 0 0.5rem;
       color: var(--accent);
     }
-
+ 
     .modal-body p { margin-bottom: 1rem; }
-
+ 
     .modal-body .takeaway {
       background: var(--tag-bg);
       border-left: 3px solid var(--accent2);
@@ -424,7 +427,7 @@
       margin: 1.5rem 0;
       font-size: 0.9rem;
     }
-
+ 
     /* ── FOOTER ── */
     footer {
       border-top: 2px solid var(--ink);
@@ -438,12 +441,12 @@
       color: var(--muted);
       letter-spacing: 0.08em;
     }
-
+ 
     footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
-
+ 
 <!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-top">
@@ -462,10 +465,10 @@
     <a href="#about">About</a>
   </nav>
 </header>
-
+ 
 <div class="container">
   <div class="main-grid">
-
+ 
     <!-- MAIN COLUMN -->
     <main>
       <!-- FEATURED -->
@@ -480,7 +483,7 @@
         <p id="featured-summary"></p>
         <a href="#" class="read-more" id="featured-read-more" onclick="return false;">Read full analysis →</a>
       </div>
-
+ 
       <!-- FILTER -->
       <div class="filter-row">
         <button class="filter-btn active" data-filter="all">All</button>
@@ -489,12 +492,12 @@
         <button class="filter-btn" data-filter="pharma">Pharma</button>
         <button class="filter-btn" data-filter="energy">Energy</button>
       </div>
-
+ 
       <!-- DEAL LIST -->
       <div class="section-label">All Analyses</div>
       <div class="deal-list" id="deal-list"></div>
     </main>
-
+ 
     <!-- SIDEBAR -->
     <aside class="sidebar" id="about">
       <div class="sidebar-block">
@@ -505,7 +508,7 @@
           <a href="https://linkedin.com/in/poulome-yadav-632ab4331" target="_blank">LinkedIn ↗</a>
         </p>
       </div>
-
+ 
       <div class="sidebar-block">
         <h4>By the numbers</h4>
         <div class="stat-row">
@@ -523,7 +526,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="sidebar-block">
         <h4>Topics covered</h4>
         <div class="deal-tags" id="topic-tags"></div>
@@ -531,12 +534,12 @@
     </aside>
   </div>
 </div>
-
+ 
 <footer>
   <span>The Commercial Deals Journal · Poulome Yadav · University of Greenwich</span>
   <span>SCL Student Ambassador · CIBFS M&A Analyst</span>
 </footer>
-
+ 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal">
@@ -551,7 +554,7 @@
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
-
+ 
 <script>
   // ── DEAL DATA ──
   // To add a new deal: copy one object, fill in the fields, save.
@@ -568,55 +571,24 @@
       body: `
         <h3>The Deal</h3>
         <p>On 10 June 2026, Frasers Group launched a voluntary public takeover bid for all outstanding shares in Hugo Boss AG, offering €38.00 per share in cash. The offer values the German fashion house at approximately €2.7bn, with the equity consideration for shares not already owned by Frasers totalling around €1.98bn. Frasers was already Hugo Boss's largest shareholder, having built a stake of roughly 26% through market purchases — the accumulation this publication covered in its earlier stakebuilding analysis.</p>
-
+ 
         <h3>From Stakebuilder to Bidder</h3>
         <p>This bid resolves the question left open by Frasers' earlier disclosure filings: whether the stake was a step toward a full takeover, a play for board influence, or commercial leverage. The answer is now clear. Under German takeover law (the WpÜG), a voluntary public offer of this kind must be reviewed by the target's management and supervisory boards, who are required to issue a reasoned statement to shareholders — a process Hugo Boss's boards confirmed is underway, describing the approach as unsolicited and uncoordinated.</p>
-
+ 
         <h3>Regulatory and Timing Considerations</h3>
         <p>Frasers is targeting completion in the second half of 2026, subject to regulatory clearances. As a UK acquirer bidding for a Frankfurt-listed target, the deal sits at the intersection of German securities and takeover regulation (overseen by BaFin) and any applicable UK disclosure obligations arising from Frasers' own listing. The all-cash structure removes currency and stock-dilution complexity for Hugo Boss shareholders, but the "unsolicited" framing from the target's boards signals a takeover process rather than a negotiated merger, raising the prospect of a contested review period.</p>
-
+ 
         <h3>Strategic Rationale</h3>
         <p>The bid is widely read as the capstone of Frasers' long-running "luxury elevation strategy" — a deliberate move away from its historic identity as a discount retailer (built around Sports Direct) toward ownership of a premium, globally recognised brand. Hugo Boss already ranks among the top brands feeding Frasers' upmarket retail chain Flannels, giving the deal clear vertical logic beyond pure financial return. Frasers has also framed the timing as opportunistic: Hugo Boss's shares had cooled alongside a broader post-pandemic slowdown (like-for-like sales fell in Q1 2026), which Frasers appears to view as a window to acquire a strong luxury asset below its longer-term value. Notably, Frasers has stated it intends to retain Hugo Boss's incumbent management, including CEO Daniel Grieder and Chair Stephan Sturm, and to continue their existing growth strategy — a signal aimed at reassuring the target's boards and easing the path through the reasoned-statement process.</p>
-
+ 
         <h3>Market Reaction</h3>
         <p>Hugo Boss shares (XETRA: BOSS) jumped nearly 10% on the announcement, from a prior close of €36.50 to briefly above €40.00, before settling close to the €38.00 offer price — trading at €37.79 as of the last session on 3 July 2026. This pattern, shares converging toward but not exceeding the offer price, is typical where the market views the bid as credible but not certain to close at the stated terms, or expects only a modest possibility of a higher counter-offer.</p>
-
+ 
         <div class="takeaway">
           <strong>Key takeaway:</strong> This deal is a live example of how a toehold stake can evolve into a full takeover bid, and of the procedural machinery, reasoned board statements, cross-border regulatory review, Takeover Code-equivalent obligations, that governs unsolicited offers for listed companies. For students of M&A law, it is a rare opportunity to watch a hostile-adjacent European takeover process unfold in close to real time.
         </div>
       `
     },
-    
-    {
-      id: 6, 
-      title: "GSK Cancer Drug Acquisition", 
-      date: "June 2026",
-      value: "$10.6bn",
-      sector: "pharma", 
-      sectorLabel: "all deals", 
-      tags: ["Biopharma","M&A","Finance"], 
-      summary: "GSK has entered a $10.6bn agreement to acquire Nuvalent, a company specialising in oncology therapies, giving GSK ownership over three lung cancer drug candidates.",
-      
-    body: `
-  <h3>The Deal</h3>
-  <p>Under Delaware state law, the transaction is being executed via a tender offer, followed by a second-step merger. Davis Polk & Wardwell and Slaughter and May serve as legal counsel to GSK. Nuvalent is advised by Ropes & Gray.</p>
-
-  <h3>Legal Structure</h3>
-  <p>Harmony Row Acquisition Co. (a subsidiary of GlaxoSmithKline LLC) commenced a cash tender offer to acquire all outstanding shares of Nuvalent's Class A and Class B common stock at $124 per share. The tender offer must be accepted by a majority of Nuvalent's outstanding Class A common stock. Once the tender offer conditions are satisfied, Harmony Row Acquisition Co. will merge directly into Nuvalent. The separate corporate existence of the Purchaser will cease, and Nuvalent will continue as the surviving corporation. Following the merger, Nuvalent will become a direct wholly owned subsidiary of GlaxoSmithKline LLC and an indirect wholly owned subsidiary of GSK plc.</p>
-
-  <h3>Regulatory Issues</h3>
-  <p>Antitrust clearance: The deal is subject to customary conditions, including clearance under the Hart-Scott-Rodino (HSR) Act in the United States. Because Nuvalent’s pipeline focuses on targeted lung cancer therapies (ROS1 and ALK inhibitors), which complement rather than directly overlap with GSK's oncology portfolio, significant antitrust concerns are not widely expected. FDA drug review timelines also remain important. Zidesamtinib (NVL-520) has a target FDA decision date of 18 September 2026, while neladalkib (NVL-655) has a target action date of 27 November 2026.</p>
-
-  <div class="takeaway">
-    <strong>Key takeaway:</strong> This deal demonstrates how pharmaceutical M&A combines corporate law, securities law, antitrust review and drug regulation. Lawyers must coordinate each stage of the transaction while managing both competition approval and clinical regulatory risk.
-  </div>
-
-  <h3>What This Means for the Market</h3>
-  <p>The merger highlights another active year for biopharma M&A. By acquiring one of the few independent companies with late-stage oncology assets, GSK places competitive pressure on rivals such as Pfizer and Roche to pursue their own targeted oncology acquisitions.</p>
-`,
-      `
-    },
-                  
     {
       id: 1,
       title: "Broadcom's Acquisition of VMware",
@@ -629,17 +601,17 @@
       body: `
         <h3>The Deal</h3>
         <p>Broadcom agreed to acquire VMware in a cash-and-stock transaction, combining one of the world's leading semiconductor companies with a dominant player in enterprise cloud infrastructure. The deal took over two years to close due to extensive regulatory review.</p>
-
+ 
         <h3>Legal Structure</h3>
         <p>The transaction was structured as a merger agreement, with VMware shareholders receiving either cash or Broadcom stock. A critical feature was the assumption by Broadcom of approximately $8bn in VMware net debt — a common structure in large technology acquisitions designed to make the headline equity figure more palatable while the acquirer absorbs existing liabilities.</p>
-
+ 
         <h3>Regulatory Issues</h3>
         <p>The deal required clearance from regulators in the US, EU, UK, and China. The EU's review focused on interoperability concerns — whether Broadcom would use VMware's software to discriminate against rival chipmakers. Behavioural remedies were ultimately accepted rather than structural ones.</p>
-
+ 
         <div class="takeaway">
           <strong>Key takeaway:</strong> This deal illustrates how large technology M&A is increasingly shaped by competition law as much as financial logic. Understanding the interplay between deal structure and regulatory risk is essential for any commercial lawyer advising on cross-border transactions.
         </div>
-
+ 
         <h3>What This Means for the Market</h3>
         <p>Post-acquisition, Broadcom moved VMware to a subscription model and significantly restructured its partner ecosystem — a reminder that the legal close of a deal is rarely the end of the story for clients operating in the target's ecosystem.</p>
       `
@@ -656,13 +628,13 @@
       body: `
         <h3>The Deal</h3>
         <p>Microsoft's all-cash acquisition of Activision Blizzard was the largest gaming deal in history, combining the Xbox platform with franchises including Call of Duty, World of Warcraft, and Candy Crush.</p>
-
+ 
         <h3>The CMA's Role</h3>
         <p>The UK's Competition and Markets Authority initially blocked the deal on cloud gaming grounds — a rare and significant intervention. Microsoft subsequently restructured the transaction, divesting Activision's cloud streaming rights to Ubisoft, which satisfied the CMA's concerns. This deal is a case study in how a single regulator can reshape a global transaction.</p>
-
+ 
         <h3>IP Considerations</h3>
         <p>The deal involved one of the largest IP portfolios in entertainment — game code, characters, trademarks, and music rights spanning decades. Due diligence on IP ownership and licensing chains in gaming acquisitions is notoriously complex given the layered contractor and studio relationships involved.</p>
-
+ 
         <div class="takeaway">
           <strong>Key takeaway:</strong> This deal demonstrates that regulatory risk is now a primary deal risk, not a secondary one. Lawyers advising on tech M&A must build regulatory strategy into the deal structure from day one, not after signing.
         </div>
@@ -680,17 +652,17 @@
       body: `
         <h3>The Deal</h3>
         <p>Frasers Group built a substantial shareholding in Hugo Boss over time through market purchases, eventually crossing disclosure thresholds that required public notification under both UK and German regulatory frameworks. The accumulation strategy is sometimes called a 'dawn raid' approach when done rapidly.</p>
-
+ 
         <h3>Disclosure and Regulatory Framework</h3>
         <p>Under the UK's Disclosure Guidance and Transparency Rules (DTR 5), investors must disclose when they cross certain ownership thresholds in listed companies. The cross-border nature of this stake — involving a UK acquirer and a German-listed target — required navigation of both the UK FCA's rules and BaFin's equivalent German framework.</p>
-
+ 
         <h3>Strategic Considerations</h3>
         <p>Frasers' accumulation raised immediate questions about whether it was building toward a full takeover bid, seeking board representation, or using the stake as commercial leverage in a trading relationship. Each of these strategies has different legal implications under the Takeover Code and company law.</p>
-
+ 
         <div class="takeaway">
           <strong>Key takeaway:</strong> Minority stake acquisitions in listed companies are heavily regulated events, not merely investment decisions. The disclosure regime, takeover code implications, and cross-border regulatory overlay make this a rich area for commercial lawyers advising activist investors.
         </div>
-
+ 
         <h3>Update — June 2026</h3>
         <p>This stakebuilding has since evolved into a full takeover bid. See "Frasers Group's €1.98bn Takeover Bid for Hugo Boss" for the latest developments.</p>
       `
@@ -707,23 +679,23 @@
       body: `
         <h3>The Deal</h3>
         <p>AstraZeneca agreed to acquire Canadian biotech Fusion Pharmaceuticals in an all-cash deal, primarily to obtain rights to Fusion's radioconjugate cancer therapy pipeline and its intellectual property in targeted radiation technology.</p>
-
+ 
         <h3>IP as the Core Asset</h3>
         <p>Unlike most M&A where the target's revenue or market position drives value, this deal was essentially an IP acquisition. The legal due diligence would have centred on patent validity, freedom-to-operate analyses, existing licensing arrangements, and the risk of patent challenges from competitors.</p>
-
+ 
         <h3>Regulatory Pathway</h3>
         <p>Pharmaceutical deals require not only competition clearance but also regulatory consideration of pipeline overlap — whether combining the parties' drug pipelines would reduce innovation incentives. This adds a layer of complexity that purely commercial M&A does not face.</p>
-
+ 
         <div class="takeaway">
           <strong>Key takeaway:</strong> In life sciences M&A, IP counsel and competition lawyers must work alongside corporate teams from the outset. The value of the deal often lives entirely in the patent portfolio, making IP due diligence the most commercially critical part of the transaction.
         </div>
       `
     }
   ];
-
+ 
   // ── RENDER LOGIC ──
   const featuredDeal = deals[0];
-
+ 
   function renderFeatured(deal) {
     document.getElementById('featured-title').textContent = deal.title;
     document.getElementById('featured-date').textContent = deal.date;
@@ -733,7 +705,7 @@
     document.getElementById('featured-read-more').onclick = () => openModal(deal);
     document.getElementById('featured-title').onclick = () => openModal(deal);
   }
-
+ 
   function renderDeals(filter = 'all') {
     const list = document.getElementById('deal-list');
     list.innerHTML = '';
@@ -760,7 +732,7 @@
       list.appendChild(item);
     });
   }
-
+ 
   function renderSidebar() {
     document.getElementById('stat-deals').textContent = deals.length;
     const sectors = [...new Set(deals.map(d => d.sector))].length;
@@ -772,7 +744,7 @@
     tagContainer.innerHTML = allTags.map(t => `<span class="tag">${t}</span>`).join('');
     document.getElementById('issue-count').textContent = `${deals.length} analyses published`;
   }
-
+ 
   function openModal(deal) {
     document.getElementById('modal-eyebrow').textContent = deal.sectorLabel + ' · ' + deal.date;
     document.getElementById('modal-title').textContent = deal.title;
@@ -783,12 +755,12 @@
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
+ 
   function closeModal() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-
+ 
   // Filter buttons
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -797,13 +769,13 @@
       renderDeals(btn.dataset.filter);
     });
   });
-
+ 
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal-overlay').addEventListener('click', e => {
     if (e.target === document.getElementById('modal-overlay')) closeModal();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
+ 
   // Init
   renderFeatured(featuredDeal);
   renderDeals();
