@@ -1,1 +1,750 @@
 # commercial-deals-journal
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Commercial Deals Journal — Poulome Yadav</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink:       #0f0f0f;
+      --paper:     #f7f5f0;
+      --rule:      #d4cfc4;
+      --accent:    #1a3a5c;
+      --accent2:   #c8a951;
+      --muted:     #7a7567;
+      --tag-bg:    #e8e4db;
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+ 
+    /* ── MASTHEAD ── */
+    .masthead {
+      border-bottom: 3px solid var(--ink);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+ 
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0 0.75rem;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+ 
+    .masthead-title {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+    }
+ 
+    .masthead-title h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+    }
+ 
+    .masthead-title .sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+ 
+    .masthead-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--rule);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+ 
+    .masthead-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .masthead-nav a:hover { color: var(--accent); }
+ 
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+ 
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      padding: 3rem 0;
+    }
+ 
+    @media (max-width: 768px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+    }
+ 
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      border-top: 2px solid var(--ink);
+      padding-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+ 
+    /* ── FEATURED DEAL ── */
+    .featured {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+ 
+    .featured-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+ 
+    .featured h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+ 
+    .featured h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .featured h2 a:hover { color: var(--accent); }
+ 
+    .featured-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+ 
+    .featured-meta .deal-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--accent);
+      background: var(--tag-bg);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+    }
+ 
+    .featured p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #2a2a2a;
+      max-width: 65ch;
+    }
+ 
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+    .read-more:hover { opacity: 0.65; }
+ 
+    /* ── DEAL LIST ── */
+    .deal-list { display: flex; flex-direction: column; gap: 0; }
+ 
+    .deal-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .deal-item:hover { background: rgba(26,58,92,0.03); }
+ 
+    .deal-item-left {}
+ 
+    .deal-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+ 
+    .tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--tag-bg);
+      color: var(--muted);
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+    }
+ 
+    .tag.sector-tech    { background: #dce8f5; color: #1a3a5c; }
+    .tag.sector-pharma  { background: #e5f0e5; color: #2a5c2a; }
+    .tag.sector-finance { background: #f5ead5; color: #7a5c1a; }
+    .tag.sector-energy  { background: #f0e5f5; color: #5c2a5c; }
+ 
+    .deal-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+ 
+    .deal-item-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+ 
+    .deal-value-small {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 400;
+      white-space: nowrap;
+      padding-top: 1.5rem;
+    }
+ 
+    /* ── SIDEBAR ── */
+    .sidebar { }
+ 
+    .sidebar-block {
+      border-top: 2px solid var(--ink);
+      padding-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+ 
+    .sidebar-block h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+ 
+    .about-text {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+ 
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+ 
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+ 
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+ 
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+ 
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+ 
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+ 
+    .filter-btn {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border: 1.5px solid var(--rule);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+ 
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15,15,15,0.6);
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      padding: 2rem 1rem;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+ 
+    .modal {
+      background: var(--paper);
+      max-width: 720px;
+      width: 100%;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+      border-top: 4px solid var(--accent);
+      margin: auto;
+    }
+ 
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none; border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--ink); }
+ 
+    .modal-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+ 
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+ 
+    .modal-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+ 
+    .modal-body {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #1a1a1a;
+    }
+ 
+    .modal-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.5rem;
+      color: var(--accent);
+    }
+ 
+    .modal-body p { margin-bottom: 1rem; }
+ 
+    .modal-body .takeaway {
+      background: var(--tag-bg);
+      border-left: 3px solid var(--accent2);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--ink);
+      padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+ 
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+ 
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <span id="issue-date">Vol. I</span>
+    <span>M&A · Tech Law · Financial Services</span>
+    <span id="issue-count">— issues published</span>
+  </div>
+  <div class="masthead-title">
+    <h1>The M&A Brief</h1>
+    <p class="sub">Deal Analysis &amp; Commercial Law Commentary &nbsp;·&nbsp; Poulome Yadav</p>
+  </div>
+  <nav class="masthead-nav">
+    <a href="#all">All Deals</a>
+    <a href="#tech">Tech &amp; Cyber</a>
+    <a href="#finance">Financial Services</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+ 
+<div class="container">
+  <div class="main-grid">
+ 
+    <!-- MAIN COLUMN -->
+    <main>
+      <!-- FEATURED -->
+      <div class="featured" id="featured-block">
+        <div class="featured-eyebrow">Featured Analysis</div>
+        <h2><a href="#" id="featured-title" onclick="return false;"></a></h2>
+        <div class="featured-meta">
+          <span id="featured-date"></span>
+          <span id="featured-value" class="deal-value"></span>
+          <span id="featured-sector"></span>
+        </div>
+        <p id="featured-summary"></p>
+        <a href="#" class="read-more" id="featured-read-more" onclick="return false;">Read full analysis →</a>
+      </div>
+ 
+      <!-- FILTER -->
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="tech">Tech &amp; Cyber</button>
+        <button class="filter-btn" data-filter="finance">Financial Services</button>
+        <button class="filter-btn" data-filter="pharma">Pharma</button>
+        <button class="filter-btn" data-filter="energy">Energy</button>
+      </div>
+ 
+      <!-- DEAL LIST -->
+      <div class="section-label">All Analyses</div>
+      <div class="deal-list" id="deal-list"></div>
+    </main>
+ 
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="about">
+      <div class="sidebar-block">
+        <h4>About</h4>
+        <p class="about-text">
+          Deal-by-deal analysis of live M&A transactions, written for law and finance students who want to understand what's actually happening in the market — not just the headline number.<br><br>
+          Published by <strong>Poulome Yadav</strong>, LLB Law, University of Greenwich. SCL Student Ambassador. M&A Analyst, CIBFS.<br><br>
+          <a href="https://linkedin.com/in/poulome-yadav-632ab4331" target="_blank">LinkedIn ↗</a>
+        </p>
+      </div>
+ 
+      <div class="sidebar-block">
+        <h4>By the numbers</h4>
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num" id="stat-deals">0</span>
+            <span class="stat-label">Deals analysed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-sectors">0</span>
+            <span class="stat-label">Sectors covered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-value">—</span>
+            <span class="stat-label">Largest deal tracked</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="sidebar-block">
+        <h4>Topics covered</h4>
+        <div class="deal-tags" id="topic-tags"></div>
+      </div>
+    </aside>
+  </div>
+</div>
+ 
+<footer>
+  <span>The M&A Brief · Poulome Yadav · University of Greenwich</span>
+  <span>SCL Student Ambassador · CIBFS M&A Analyst</span>
+</footer>
+ 
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-eyebrow" id="modal-eyebrow"></div>
+    <h2 id="modal-title"></h2>
+    <div class="modal-meta">
+      <span id="modal-date"></span>
+      <span id="modal-value" class="deal-value"></span>
+      <span id="modal-sector"></span>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+ 
+<script>
+  // ── DEAL DATA ──
+  // To add a new deal: copy one object, fill in the fields, save.
+  const deals = [
+    {
+      id: 1,
+      title: "Broadcom's Acquisition of VMware",
+      date: "June 2025",
+      value: "$61bn",
+      sector: "tech",
+      sectorLabel: "Tech & Cyber",
+      tags: ["Software", "Antitrust", "Cross-border"],
+      summary: "One of the largest technology acquisitions in history, Broadcom's takeover of cloud infrastructure giant VMware raised significant antitrust scrutiny across multiple jurisdictions before ultimately receiving regulatory clearance.",
+      body: `
+        <h3>The Deal</h3>
+        <p>Broadcom agreed to acquire VMware in a cash-and-stock transaction, combining one of the world's leading semiconductor companies with a dominant player in enterprise cloud infrastructure. The deal took over two years to close due to extensive regulatory review.</p>
+ 
+        <h3>Legal Structure</h3>
+        <p>The transaction was structured as a merger agreement, with VMware shareholders receiving either cash or Broadcom stock. A critical feature was the assumption by Broadcom of approximately $8bn in VMware net debt — a common structure in large technology acquisitions designed to make the headline equity figure more palatable while the acquirer absorbs existing liabilities.</p>
+ 
+        <h3>Regulatory Issues</h3>
+        <p>The deal required clearance from regulators in the US, EU, UK, and China. The EU's review focused on interoperability concerns — whether Broadcom would use VMware's software to discriminate against rival chipmakers. Behavioural remedies were ultimately accepted rather than structural ones.</p>
+ 
+        <div class="takeaway">
+          <strong>Key takeaway:</strong> This deal illustrates how large technology M&A is increasingly shaped by competition law as much as financial logic. Understanding the interplay between deal structure and regulatory risk is essential for any commercial lawyer advising on cross-border transactions.
+        </div>
+ 
+        <h3>What This Means for the Market</h3>
+        <p>Post-acquisition, Broadcom moved VMware to a subscription model and significantly restructured its partner ecosystem — a reminder that the legal close of a deal is rarely the end of the story for clients operating in the target's ecosystem.</p>
+      `
+    },
+    {
+      id: 2,
+      title: "Microsoft's Acquisition of Activision Blizzard",
+      date: "April 2025",
+      value: "$68.7bn",
+      sector: "tech",
+      sectorLabel: "Tech & Cyber",
+      tags: ["Gaming", "Antitrust", "CMA", "IP"],
+      summary: "A landmark transaction that put the UK's Competition and Markets Authority at the centre of global M&A regulation, ultimately concluding after a restructured cloud gaming remedy.",
+      body: `
+        <h3>The Deal</h3>
+        <p>Microsoft's all-cash acquisition of Activision Blizzard was the largest gaming deal in history, combining the Xbox platform with franchises including Call of Duty, World of Warcraft, and Candy Crush.</p>
+ 
+        <h3>The CMA's Role</h3>
+        <p>The UK's Competition and Markets Authority initially blocked the deal on cloud gaming grounds — a rare and significant intervention. Microsoft subsequently restructured the transaction, divesting Activision's cloud streaming rights to Ubisoft, which satisfied the CMA's concerns. This deal is a case study in how a single regulator can reshape a global transaction.</p>
+ 
+        <h3>IP Considerations</h3>
+        <p>The deal involved one of the largest IP portfolios in entertainment — game code, characters, trademarks, and music rights spanning decades. Due diligence on IP ownership and licensing chains in gaming acquisitions is notoriously complex given the layered contractor and studio relationships involved.</p>
+ 
+        <div class="takeaway">
+          <strong>Key takeaway:</strong> This deal demonstrates that regulatory risk is now a primary deal risk, not a secondary one. Lawyers advising on tech M&A must build regulatory strategy into the deal structure from day one, not after signing.
+        </div>
+      `
+    },
+    {
+      id: 3,
+      title: "Frasers Group's Stake Building in Hugo Boss",
+      date: "May 2025",
+      value: "~£1.1bn stake",
+      sector: "finance",
+      sectorLabel: "Financial Services",
+      tags: ["Retail", "Equity", "Disclosure", "Strategy"],
+      summary: "Mike Ashley's Frasers Group steadily accumulated a significant stake in Hugo Boss, triggering disclosure obligations and raising questions about strategic intent under UK and German securities law.",
+      body: `
+        <h3>The Deal</h3>
+        <p>Frasers Group built a substantial shareholding in Hugo Boss over time through market purchases, eventually crossing disclosure thresholds that required public notification under both UK and German regulatory frameworks. The accumulation strategy is sometimes called a 'dawn raid' approach when done rapidly.</p>
+ 
+        <h3>Disclosure and Regulatory Framework</h3>
+        <p>Under the UK's Disclosure Guidance and Transparency Rules (DTR 5), investors must disclose when they cross certain ownership thresholds in listed companies. The cross-border nature of this stake — involving a UK acquirer and a German-listed target — required navigation of both the UK FCA's rules and BaFin's equivalent German framework.</p>
+ 
+        <h3>Strategic Considerations</h3>
+        <p>Frasers' accumulation raised immediate questions about whether it was building toward a full takeover bid, seeking board representation, or using the stake as commercial leverage in a trading relationship. Each of these strategies has different legal implications under the Takeover Code and company law.</p>
+ 
+        <div class="takeaway">
+          <strong>Key takeaway:</strong> Minority stake acquisitions in listed companies are heavily regulated events, not merely investment decisions. The disclosure regime, takeover code implications, and cross-border regulatory overlay make this a rich area for commercial lawyers advising activist investors.
+        </div>
+      `
+    },
+    {
+      id: 4,
+      title: "AstraZeneca's Acquisition of Fusion Pharmaceuticals",
+      date: "March 2025",
+      value: "$2.4bn",
+      sector: "pharma",
+      sectorLabel: "Pharma",
+      tags: ["Life Sciences", "IP", "Licensing", "Cross-border"],
+      summary: "AstraZeneca's acquisition of Fusion Pharmaceuticals illustrates how pharmaceutical M&A is driven as much by IP acquisition strategy as by commercial synergy.",
+      body: `
+        <h3>The Deal</h3>
+        <p>AstraZeneca agreed to acquire Canadian biotech Fusion Pharmaceuticals in an all-cash deal, primarily to obtain rights to Fusion's radioconjugate cancer therapy pipeline and its intellectual property in targeted radiation technology.</p>
+ 
+        <h3>IP as the Core Asset</h3>
+        <p>Unlike most M&A where the target's revenue or market position drives value, this deal was essentially an IP acquisition. The legal due diligence would have centred on patent validity, freedom-to-operate analyses, existing licensing arrangements, and the risk of patent challenges from competitors.</p>
+ 
+        <h3>Regulatory Pathway</h3>
+        <p>Pharmaceutical deals require not only competition clearance but also regulatory consideration of pipeline overlap — whether combining the parties' drug pipelines would reduce innovation incentives. This adds a layer of complexity that purely commercial M&A does not face.</p>
+ 
+        <div class="takeaway">
+          <strong>Key takeaway:</strong> In life sciences M&A, IP counsel and competition lawyers must work alongside corporate teams from the outset. The value of the deal often lives entirely in the patent portfolio, making IP due diligence the most commercially critical part of the transaction.
+        </div>
+      `
+    }
+  ];
+ 
+  // ── RENDER LOGIC ──
+  const featuredDeal = deals[0];
+ 
+  function renderFeatured(deal) {
+    document.getElementById('featured-title').textContent = deal.title;
+    document.getElementById('featured-date').textContent = deal.date;
+    document.getElementById('featured-value').textContent = deal.value;
+    document.getElementById('featured-sector').textContent = deal.sectorLabel;
+    document.getElementById('featured-summary').textContent = deal.summary;
+    document.getElementById('featured-read-more').onclick = () => openModal(deal);
+    document.getElementById('featured-title').onclick = () => openModal(deal);
+  }
+ 
+  function renderDeals(filter = 'all') {
+    const list = document.getElementById('deal-list');
+    list.innerHTML = '';
+    const filtered = filter === 'all' ? deals.slice(1) : deals.slice(1).filter(d => d.sector === filter);
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="color:var(--muted);font-size:0.9rem;padding:1rem 0">No analyses in this category yet.</p>';
+      return;
+    }
+    filtered.forEach(deal => {
+      const item = document.createElement('div');
+      item.className = 'deal-item';
+      item.innerHTML = `
+        <div class="deal-item-left">
+          <div class="deal-tags">${deal.tags.map(t => `<span class="tag sector-${deal.sector}">${t}</span>`).join('')}</div>
+          <h3>${deal.title}</h3>
+          <div class="deal-item-meta">
+            <span>${deal.date}</span>
+            <span>${deal.sectorLabel}</span>
+          </div>
+        </div>
+        <div class="deal-value-small">${deal.value}</div>
+      `;
+      item.addEventListener('click', () => openModal(deal));
+      list.appendChild(item);
+    });
+  }
+ 
+  function renderSidebar() {
+    document.getElementById('stat-deals').textContent = deals.length;
+    const sectors = [...new Set(deals.map(d => d.sector))].length;
+    document.getElementById('stat-sectors').textContent = sectors;
+    const largest = deals.reduce((a, b) => a.value > b.value ? a : b);
+    document.getElementById('stat-value').textContent = largest.value;
+    const allTags = [...new Set(deals.flatMap(d => d.tags))];
+    const tagContainer = document.getElementById('topic-tags');
+    tagContainer.innerHTML = allTags.map(t => `<span class="tag">${t}</span>`).join('');
+    document.getElementById('issue-count').textContent = `${deals.length} analyses published`;
+  }
+ 
+  function openModal(deal) {
+    document.getElementById('modal-eyebrow').textContent = deal.sectorLabel + ' · ' + deal.date;
+    document.getElementById('modal-title').textContent = deal.title;
+    document.getElementById('modal-date').textContent = deal.date;
+    document.getElementById('modal-value').textContent = deal.value;
+    document.getElementById('modal-sector').textContent = deal.sectorLabel;
+    document.getElementById('modal-body').innerHTML = deal.body;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+ 
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderDeals(btn.dataset.filter);
+    });
+  });
+ 
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+ 
+  // Init
+  renderFeatured(featuredDeal);
+  renderDeals();
+  renderSidebar();
+</script>
+</body>
+</ht
