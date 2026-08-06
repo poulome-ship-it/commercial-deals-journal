@@ -231,6 +231,7 @@
     .tag.sector-pharma  { background: #e5f0e5; color: #2a5c2a; }
     .tag.sector-finance { background: #f5ead5; color: #7a5c1a; }
     .tag.sector-energy  { background: #f0e5f5; color: #5c2a5c; }
+    .tag.sector-defence { background: #e5edf0; color: #1a2a5c; }
  
     .deal-item h3 {
       font-family: 'Playfair Display', serif;
@@ -489,6 +490,8 @@
         <button class="filter-btn" data-filter="finance">Financial Services</button>
         <button class="filter-btn" data-filter="pharma">Pharma</button>
         <button class="filter-btn" data-filter="energy">Energy</button>
+        <button class="filter-btn" data-filter="defence">Aerospace &amp; Defence</button>
+
       </div>
  
       <!-- DEAL LIST -->
@@ -657,7 +660,7 @@
       `
     }, 
     {
-          id: 5,
+      id: 5,
       title: "Frasers Group's €1.98bn Takeover Bid for Hugo Boss",
       date: "June 2026",
       value: "€2.7bn",
@@ -718,7 +721,7 @@
       title: "Lockheed Martin's $3.5bn deal for subsea tech group",
       date: "July 2026",
       value: "$3.5bn",
-      sector: "Aerospace & Defence",
+      sector: "defence",
       sectorLabel: "Aerospace & Defence",
       tags: ["M&A", "Private Equity"],
       summary: "LM has become the frontrunner to buy Ultra Maritime (manufactures undersea defence technology like buoys detecting torpedoes and submarines - used by Britian's Royal Navy and the US Navy) for $3.5bn. Ultra Maritime specialises in anti-submarine technology that is used to detect, track or destroy enemy submarines underwater",
